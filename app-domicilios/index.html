@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contabilidad de Domicilios</title>
+  <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+
+<section id="loginScreen" class="login-screen">
+  <div class="login-card">
+    <h1>🏍️ DomiControl</h1>
+    <p>Ingresa o crea tu usuario local.</p>
+
+    <input id="loginName" type="text" placeholder="Usuario">
+    <input id="loginEmail" type="email" placeholder="Correo">
+    <input id="loginPassword" type="password" placeholder="Contraseña">
+
+    <button id="loginBtn">Ingresar</button>
+    <button id="registerBtn" class="secondary">Crear usuario</button>
+
+   
+</section>
+
+<main id="appScreen" class="app hidden">
+
+  <header class="header">
+    <div>
+      <p class="badge">🏍️ Control rápido de domicilios</p>
+      <h1>Contabilidad de domicilios</h1>
+      <p class="subtitle" id="userInfo"></p>
+    </div>
+
+    <div class="header-buttons">
+      <button id="undoBtn">↩ Deshacer</button>
+      <button id="exportDayBtn">⬇ Día</button>
+      <button id="exportAllBtn">📦 Todo</button>
+      <button id="exportRangeBtn">📅 Rango</button>
+      <button id="backupBtn">💾 Copia</button>
+      <button id="restoreBtn">♻ Restaurar</button>
+      <button id="logoutBtn" class="danger">Salir</button>
+      <input type="file" id="restoreInput" accept=".json" hidden>
+    </div>
+  </header>
+
+  <section class="summary">
+    <div class="card"><span>Total día</span><strong id="totalDay">$0</strong></div>
+    <div class="card"><span>Domicilios día</span><strong id="countDay">0</strong></div>
+    <div class="card"><span>Ganancia neta</span><strong id="netDay">$0</strong></div>
+    <div class="card"><span>Total semana</span><strong id="weekTotal">$0</strong></div>
+    <div class="card"><span>Total mes</span><strong id="monthTotal">$0</strong></div>
+    <div class="card"><span>Promedio día</span><strong id="averageDay">$0</strong></div>
+  </section>
+
+  <section class="panel">
+    <h2>Registro rápido</h2>
+    <div class="buttons-grid" id="quickButtons"></div>
+
+    <div class="custom-box">
+      <input type="number" id="customValue" placeholder="Valor personalizado">
+      <input type="text" id="customNote" placeholder="Nota opcional">
+      <button id="addCustomBtn">Agregar</button>
+    </div>
+
+    <div class="custom-box">
+      <input type="number" id="expenseValue" placeholder="Gasto">
+      <input type="text" id="expenseNote" placeholder="Gasolina, comida...">
+      <button id="addExpenseBtn">Agregar gasto</button>
+    </div>
+  </section>
+
+  <section class="panel">
+    <div class="history-header">
+      <h2>Historial</h2>
+      <div class="history-buttons">
+        <button id="toggleHistoryBtn">👁 Mostrar</button>
+        <button id="clearDayBtn">🗑 Borrar día</button>
+        <button id="clearAllBtn" class="danger">🔥 Borrar todo</button>
+      </div>
+    </div>
+
+    <div class="filters">
+      <select id="selectedDate"></select>
+      <input type="date" id="rangeStart">
+      <input type="date" id="rangeEnd">
+    </div>
+
+    <div id="recordsList" class="hidden"></div>
+  </section>
+
+</main>
+
+<div id="toast" class="toast hidden"></div>
+
+<script src="script.js"></script>
+</body>
+</html>
